@@ -1,23 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout('layouts/boilerplate') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Campground</title>
-</head>
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Campground Name</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input id="price" type="number" class="form-control" aria-label="Price"
+                            aria-describedby="price-label" placeholder="0.00" name="campground[price]">
+                    </div>
+                </div>
 
-<body>
-    <h1>Make New Campground</h1>
-    <form action="/campgrounds" method="POST">
-        <label for="title">Campground Name</label>
-        <input type="text" name="campground[title]" id="title">
-        <label for="location">Location</label>
-        <input type="text" name="campground[location]" id="location">
-        <button>Submit</button>
-    </form>
-    <a href="/campgrounds">Cancel</a>
-</body>
-
-</html>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" name="campground[image]" id="image">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" name="campground[description]"
+                        id="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Submit</button>
+                </div>
+            </form>
+            <a href="/campgrounds">
+                <button class="btn btn-danger">
+                    Cancel
+                </button></a>
+        </div>
+    </div>
