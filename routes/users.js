@@ -30,7 +30,9 @@ router.get('/login', (req, res) => {
 // wrapping route in passport function to authenticate user. options passed in object
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'Welcome Back!');
-    res.redirect('/campgrounds');
+    const redirectUrl = req.session.returnTo || '/campgrounds' //USING SESSION OBJECT TO GET REDIRECT. ADDED TO SESSION WITH AUTHENCATION MIDDLEWARE
+    delete req.session.returnTo
+    res.redirect(redirectUrl);
 })
 
 router.get('/logout', (req, res) => {
