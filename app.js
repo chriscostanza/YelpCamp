@@ -2,8 +2,6 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
-console.log(process.env.SECRET)
-
 // Requires for the projets
 const express = require('express');
 const path = require('path');
