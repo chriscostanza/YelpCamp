@@ -2,8 +2,6 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
  
-
-
 // Requires for the projets
 const express = require('express');
 const path = require('path');
@@ -17,8 +15,6 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/user')
 const helmet = require('helmet');
-
-
 
 const mongoSanitize = require('express-mongo-sanitize');
 
