@@ -34,7 +34,7 @@ mongoose.connect(dbUrl);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database Connected")
+    console.log("Database Connected");
 });
 
 
@@ -51,11 +51,11 @@ app.set('views', path.join(__dirname, 'views'));
 // setting the name for the methodoverride term used in query strings
 // setting static files path
 app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method'))
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(mongoSanitize())
+app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(mongoSanitize());
 
-const secret = process.env.SECRET || 'thisshouldbeabettersecret!'
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 const store = MongoDBStore.create({
     mongoUrl: dbUrl,
@@ -142,7 +142,6 @@ passport.deserializeUser(User.deserializeUser());
 
 // FLASING FOR ERROR AND SUCCESS. THIS MIDDLEWARE ALLOWS IT TO BE ACCESSED FROM ANY ROUTE. STORES ON 'LOCALS"
 app.use((req, res, next) => {
-    console.log(req.query)
     res.locals.currentUser = req.user;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
