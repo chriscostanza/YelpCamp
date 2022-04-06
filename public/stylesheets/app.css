@@ -39,3 +39,10 @@ a {
 a:hover {
     color: #004D40;
 }
+
+@media (max-width: 480px) {
+    #cluster-map {
+        width: 100%;
+        height: 300px
+    }
+}

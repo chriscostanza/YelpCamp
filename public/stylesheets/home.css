@@ -33,3 +33,9 @@ body {
     color:white;
     border-bottom-color: white;
 }
+
+@media (max-width: 480px) {
+    .lead {
+        font-size: 1em;
+    }
+}

@@ -3,9 +3,10 @@
 
 
     <div class="row">
-        <div class="col-6">
-
-            <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="col-md-6">
+            <div class="card mb-3" style="">
+                
+                <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((image, i)=> { %>
                         <div class="carousel-item <%= i === 0 ? 'active' : ''  %> ">
@@ -13,7 +14,7 @@
                         </div>
                         <% }) %>
                 </div>
-                <% if (campground.images.length > 1) { %>
+                <% if (campground.images.length> 1) { %>
                     <button class="carousel-control-prev" type="button" data-bs-target="#campgroundCarousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,12 +27,10 @@
                     </button>
                     <% } %>
             </div>
-
-            <div class="card mb-3" style="">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h2 class="card-title">
                         <%= campground.title %>
-                    </h5>
+                    </h2>
                     <p class="card-text">
                         <%= campground.description %>
                     </p>
@@ -60,7 +59,7 @@
             </div>
 
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
 
             <div id='map' class="mb-3"></div>
 
@@ -97,7 +96,9 @@
                     </div>
                     <button class="btn btn-success">Add Review</button>
                 </form>
-                <% } %>
+                <% } else{ %>
+                    <h2>Log In to Leave a Review!</h2>
+                    <% } %> 
                     <% for(let review of campground.reviews) {%>
                         <div class="card mb-3">
                             <div class="card-body">
