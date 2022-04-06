@@ -1,12 +1,17 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const mongoose = require('mongoose');
 const cities = require('./cities')
 const { descriptors, places } = require('./seedHelpers')
 const Campground = require('../models/campground');
+const dbUrl = process.env.DB_URL;
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection erroro:"));
+db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database Connected")
 });
@@ -19,12 +24,12 @@ const seedDB = async () => {
         const rand1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 50) + 10;
         const camp = new Campground({
-            author: '623a4a18891afcdbeed25dae',
+            author: '624db00ee32d8fa9b52a9e68',
             title: `${sample(descriptors)} ${sample(places)}`,
             location: `${cities[rand1000].city}, ${cities[rand1000].state}`,
             images: [
                 {
-                    url: 'https://res.cloudinary.com/dskpumk3o/image/upload/v1648508863/YelpCamp/trvoghopjnbvwqmkh83g.jpg',
+                    url: 'https://res.cloudinary.com/dskpumk3o/image/upload/v1648929333/YelpCamp/ojpswgkjqokb7t70jnq2.jpg',
                     filename: 'YelpCamp/trvoghopjnbvwqmkh83g'
                 },
                 {
