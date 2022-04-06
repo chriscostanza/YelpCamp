@@ -1,0 +1,41 @@
+#cluster-map {
+    width: 100%;
+    height: 500px
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+.btn-primary, .btn-success, .btn-warning, .btn-danger {
+    background-color: #004D40;
+    border-color: #004D40;
+    color: white;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover {
+    background-color:#009688 ;
+    border-color: #009688;
+}
+
+.btn-primary:active, .btn-success:active, .btn-warning:active, .btn-danger:active {
+    background-color:#009688 ;
+    border-color: #009688;
+    box-shadow: none;
+    border: none;
+}
+
+.btn-primary:active:focus, .btn-success:active:focus, .btn-warning:active:focus, .btn-danger:active:focus {
+    color: #009688; 
+    background-color: #009688; 
+    border-color: #009688;
+  }
+
+a {
+    color: #009688;
+}
+
+a:hover {
+    color: #004D40;
+}
